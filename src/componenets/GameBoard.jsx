@@ -1,7 +1,8 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { AppContext } from "../App";
 
 const DiceGame = () => {
+  const diceImageRef = useRef(null);
   const [point, setPoint] = useState(1);
   const [randomNum, setRandomNum] = useState(getRandomNum());
   const [text, setText] = useState(
@@ -15,6 +16,10 @@ const DiceGame = () => {
 
   const rollDice = () => {
     setRandomNum(getRandomNum());
+    diceImageRef.current.classList.add("rolling");
+    setTimeout(() => {
+      diceImageRef.current.classList.remove("rolling");
+    }, 1000);
   };
 
   const checkAnswer = (guess) => {
@@ -26,6 +31,7 @@ const DiceGame = () => {
         setTimeout(() => {
           setText("주사위를 굴리고 합을 맞춰 도지를 모아보세요!");
         }, 3000);
+        setRandomNum(getRandomNum());
       } else {
         localStorage.setItem("point", parseInt(myPoint) + point);
         setMyPoint(localStorage.getItem("point"));
@@ -49,6 +55,12 @@ const DiceGame = () => {
     <div className="w-full mt-12 grow flex flex-col justify-center items-center ">
       <div className="mb-24 text-2xl font-bold">{text}</div>
       <div className="flex justify-center mb-4">
+        <img
+          src="images/dice.png"
+          alt="dice"
+          ref={diceImageRef}
+          className="dice-image"
+        />
         <button
           className="px-4 py-2 mr-4 text-white bg-blue-500 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
           onClick={rollDice}
