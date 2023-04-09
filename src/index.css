@@ -26,3 +26,8 @@
     transform: rotate(0deg);
   }
 }
+
+.button {
+  background-color: #ff007f;
+  border-radius: 0.5rem;
+}

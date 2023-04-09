@@ -1,6 +1,9 @@
 import { createContext, useEffect, useState } from "react";
-import GameBoard from "./componenets/GameBoard";
-import GameResult from "./componenets/GameResult";
+import Main from "./pages/main";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Purchase from "./pages/purchase";
+import Send from "./pages/send";
+import Swap from "./pages/swap";
 
 export const AppContext = createContext();
 
@@ -17,11 +20,14 @@ function App() {
 
   return (
     <AppContext.Provider value={{ myPoint, setMyPoint }}>
-      <div className="flex flex-col justify-center items-center min-h-screen">
-        <GameResult />
-
-        <GameBoard />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/purchase" element={<Purchase />} />
+          <Route path="/send" element={<Send />} />
+          <Route path="/swap" element={<Swap />} />
+        </Routes>
+      </BrowserRouter>
     </AppContext.Provider>
   );
 }

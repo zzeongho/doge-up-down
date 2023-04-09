@@ -52,9 +52,9 @@ const DiceGame = () => {
   useEffect(() => console.log(`랜덤 숫자는 ${randomNum}입니다.`), [randomNum]);
 
   return (
-    <div className="w-full mt-12 grow flex flex-col justify-center items-center ">
-      <div className="mb-24 text-2xl font-bold">{text}</div>
-      <div className="flex justify-center mb-4">
+    <div className="w-full mt-[-50rem] mb-6 grow flex flex-col justify-center items-center ">
+      <div className="mb-20 text-2xl font-bold">{text}</div>
+      <div className="flex justify-center mb-6">
         <img
           src="images/dice.png"
           alt="dice"

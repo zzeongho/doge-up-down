@@ -8,11 +8,6 @@ const GameResult = () => {
       <img src="/images/dogeTitle.png" alt="" />
       <img className="w-28 h-28" src="/images/dogeCoin.png" alt="" />
       <div className="text-2xl font-black"> {myPoint} Doge</div>
-      <div className="  w-28 h-28 flex justify-center">
-        <img className="cursor-pointer" src="/images/purchase.png" alt="" />
-        <img className="cursor-pointer" src="/images/send.png" alt="" />
-        <img className="cursor-pointer" src="/images/swap.png" alt="" />
-      </div>
     </div>
   );
 };
